@@ -15,16 +15,20 @@
     </head>
     <body>
         {% block titre %}
-        
+            <h1>
+                <a href="{{path('pro_stage_accueil')}}">ProStage</a>
+            </h1>
         {% endblock %}
         {% block menu %}
-
+            <nav>
+                <p>
+                    <a href="{{path('pro_stage_formations')}}">Trier par formations</a>
+                    <a href="{{path('pro_stage_entreprises')}}">Trier par entreprises</a>
+                </p>    
+            </nav>
         {% endblock %}
         {% block body %}
         
-        {% endblock %}
-        {% block footer %}
-
         {% endblock %}
     </body>
 </html>
