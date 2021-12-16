@@ -16,14 +16,14 @@
     <body>
         {% block titre %}
             <h1>
-                <a href="{{path('pro_stage_accueil')}}">ProStage</a>
+                <a href="{{path('pro_stage_accueil')}}">ProStages</a>
             </h1>
         {% endblock %}
         {% block menu %}
             <nav>
                 <p>
-                    <a href="{{path('pro_stage_formations')}}">Trier par formations</a>
-                    <a href="{{path('pro_stage_entreprises')}}">Trier par entreprises</a>
+                    <a href="{{path('pro_stage_formations')}}"><button type="button" class="btn btn-info">Trier par formations</button></a>
+                    <a href="{{path('pro_stage_entreprises')}}"><button type="button" class="btn btn-info">Trier par entreprises</button></a>
                 </p>    
             </nav>
         {% endblock %}
