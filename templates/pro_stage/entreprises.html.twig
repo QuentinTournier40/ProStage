@@ -2,35 +2,43 @@
 
 {% block body %}
 
+    <br />
     <h1>
-        Entreprises proposants un/des stage(s) :
+        <center>Entreprises proposants un/des stage(s) :</center>
     </h1>
+    <br />
 
-    {% set debutNouvelleLigne = true %}
-    
-    {% for entreprise in entreprises %}
-        {# Si  on est en début de ligne, on crée un nouveau composant card-deck#}
-        {% if debutNouvelleLigne == true %}
-            <div class="card">
-            {% set debutNouvelleLigne = false %}
-        {% endif %}
-
-        <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
-            <div class="card-header">ProStages</div>
-                <div class="card-body">
-                    <a href="{{path('pro_stage_entreprises_id', {'id': entreprise.getId()}) }}"
-                        <h4 class="card-title">{{entreprise.getNom()}}</h4>
-                    </a>
-                    <p class="card-text">{{entreprise.getActivite()}}</p>
-                </div>
+    <center>
+    <div class="container-fluid">
+        {% set debutNouvelleLigne = true %}
+        
+        {% for entreprise in entreprises %}
+            {# Si  on est en début de ligne, on crée un nouveau composant card-deck#}
+            {% if debutNouvelleLigne == true %}
+                <div class="row">
+                {% set debutNouvelleLigne = false %}
+            {% endif %}
+            <div class="col-md-4">
+                <div class="card border-primary mb-3" style="max-width: 20rem;">
+                        <div class="card-body">
+                            <a href="{{path('pro_stage_entreprises_id', {'id': entreprise.getId()}) }}"
+                                <h4 class="card-title">{{entreprise.getNom()}}</h4>
+                            </a>
+                            <p class="card-text">{{entreprise.getActivite()}}</p>
+                        </div>
+                    </div>
             </div>
 
-        {# Vérifier s'il faut passer à la ligne suivante (toutes les 3 ressources affihées) #}
-        {% if loop.index % 3 == 0 %}
-        </div>
-        <br />
-        {% set debutNouvelleLigne = true %}
-        {% endif %}
-    {% endfor %}
+            {# Vérifier s'il faut passer à la ligne suivante (toutes les 3 ressources affihées) #}
+            {% if loop.index % 3 == 0 %}
+            </div>
+            <br />
+            {% set debutNouvelleLigne = true %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    </center>
 
 {% endblock %}
+
+
