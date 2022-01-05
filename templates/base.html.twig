@@ -14,17 +14,26 @@
         {% endblock %}
     </head>
     <body>
-        {% block titre %}
-            <h1>
-                <a href="{{path('pro_stage_accueil')}}">ProStages</a>
-            </h1>
-        {% endblock %}
         {% block menu %}
-            <nav>
-                <p>
-                    <a href="{{path('pro_stage_formations')}}"><button type="button" class="btn btn-info">Trier par formations</button></a>
-                    <a href="{{path('pro_stage_entreprises')}}"><button type="button" class="btn btn-info">Trier par entreprises</button></a>
-                </p>    
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{path('pro_stage_accueil')}}">ProStages</a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse collapse" id="navbarColor01" style="">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Trier par</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{path('pro_stage_formations')}}">Formation</a>
+                        <a class="dropdown-item" href="{{path('pro_stage_entreprises')}}">Entreprise</a>
+                    </div>
+                    </li>
+                </ul>
+                </div>
+            </div>
             </nav>
         {% endblock %}
         {% block body %}

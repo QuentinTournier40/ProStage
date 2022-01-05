@@ -2,6 +2,44 @@
 
 {% block body %}
     
-    <h1> Bienvenue sur la page d'accueil de ProStage </h1>
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							Nom stage
+						</th>
+						<th>
+							Nom entreprise
+						</th>
+						<th>
+							Fomration(s) visée(s)
+						</th>
+					</tr>
+				</thead>
+
+				<tbody>
+                    {% for stage in stages %}
+                        <tr>
+                            <td>
+                                <a href="{{path('pro_stage_stage_id', {'id': stage.getId()}) }}" <button type="button" class="btn btn-link">{{stage.getTitre()}}</button>
+                            </td>
+                            <td>
+                                <a href="{{path('pro_stage_entreprises_id', {'id': stage.getEntreprise().getId()}) }}" <button type="button" class="btn btn-link">{{stage.getEntreprise().getNom()}}</button>
+                            </td>
+                            <td>
+                                {% for formation in stage.getTypeFormation() %}
+                                    {{formation.getTitre()}}
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+    </div>
 
 {% endblock %}
