@@ -4,7 +4,7 @@
 
     <br />
     <h1>
-        <center>Entreprises proposants un/des stage(s) :</center>
+        <center>Entreprises proposant des stages :</center>
     </h1>
     <br />
 
@@ -21,7 +21,7 @@
             <div class="col-md-4">
                 <div class="card border-primary mb-3" style="max-width: 20rem;">
                         <div class="card-body">
-                            <a href="{{path('pro_stage_entreprises_id', {'id': entreprise.getId()}) }}"
+                            <a href="{{path('pro_stage_entreprise_id', {'id': entreprise.getId()}) }}"
                                 <h4 class="card-title">{{entreprise.getNom()}}</h4>
                             </a>
                             <p class="card-text">{{entreprise.getActivite()}}</p>

@@ -31,7 +31,7 @@ class ProStageController extends AbstractController
      */
     public function entreprises(): Response
     {
-        //Récupérer le repository de l'entité Stage
+        //Récupérer le repository de l'entité Entreprise
         $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
         //Récupérer les ressources enregistrées en BD
         $entreprises = $repositoryEntreprise->findAll();
@@ -42,12 +42,16 @@ class ProStageController extends AbstractController
     }
 
     /**
-     * @Route("/entreprise/{id}", name="pro_stage_entreprises_id")
+     * @Route("/entreprise/{id}", name="pro_stage_entreprise_id")
      */
     public function entreprise($id): Response
     {
+        //Récupérer le repository de l'entité Entreprise 
+        $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
+        //Récupérer la ressources enregistrée en BD qui possede l'id ayant pour valeur $id
+        $entreprise = $repositoryEntreprise->find($id);
         return $this->render('pro_stage/entreprise.html.twig', [
-            'id' => $id,
+            'entreprise' => $entreprise,
         ]);
     }
 
@@ -67,12 +71,16 @@ class ProStageController extends AbstractController
     }
 
     /**
-     * @Route("/formation/{id}", name="pro_stage_formations")
+     * @Route("/formation/{id}", name="pro_stage_formation_id")
      */
     public function formation($id): Response
     {
+        //Récupérer le repository de l'entité Formation 
+        $repositoryFormation = $this->getDoctrine()->getRepository(Formation::class);
+        //Récupérer la ressources enregistrée en BD qui possede l'id ayant pour valeur $id
+        $formation = $repositoryFormation->find($id);
         return $this->render('pro_stage/formation.html.twig', [
-            'id' => $id,
+            'formation' => $formation,
         ]);
     }
 
@@ -83,8 +91,12 @@ class ProStageController extends AbstractController
      */
     public function stage($id): Response
     {
+        //Récupérer le repository de l'entité Stage 
+        $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
+        //Récupérer la ressources enregistrée en BD qui possede l'id ayant pour valeur $id
+        $stage = $repositoryStage->find($id);
         return $this->render('pro_stage/stage.html.twig', [
-            'id' => $id,
+            'stage' => $stage,
         ]);
     }
     

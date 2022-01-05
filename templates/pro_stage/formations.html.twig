@@ -2,6 +2,40 @@
 
 {% block body %}
 
-<h1> Bienvenue sur la page des formations </h1>
+    <br />
+    <h1>
+        <center>Formations ayant des stages à disposition :</center>
+    </h1>
+    <br />
+
+    <center>
+    <div class="container-fluid">
+        {% set debutNouvelleLigne = true %}
+        
+        {% for formation in formations %}
+            {# Si  on est en début de ligne, on crée un nouveau composant card-deck#}
+            {% if debutNouvelleLigne == true %}
+                <div class="row">
+                {% set debutNouvelleLigne = false %}
+            {% endif %}
+            <div class="col-md-6">
+                <div class="card border-primary mb-3" style="max-width: 20rem;">
+                        <div class="card-body">
+                            <a href="{{path('pro_stage_formation_id', {'id': formation.getId()}) }}"
+                                <h4 class="card-title">{{formation.getTitre()}}</h4>
+                            </a>
+                        </div>
+                    </div>
+            </div>
+
+            {# Vérifier s'il faut passer à la ligne suivante (toutes les 3 ressources affihées) #}
+            {% if loop.index % 2 == 0 %}
+            </div>
+            <br />
+            {% set debutNouvelleLigne = true %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    </center>
 
 {% endblock %}
