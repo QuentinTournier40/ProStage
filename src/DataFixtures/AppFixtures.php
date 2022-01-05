@@ -42,7 +42,7 @@ class AppFixtures extends Fixture
             $entreprise->setNom($faker->company);
             $entreprise->setAdresse($faker->address);
             $entreprise->setActivite("aeronautique");
-            $entreprise->setLienSite($faker->companyEmail);
+            $entreprise->setLienSite($faker->domainName);
 
             for($j = 0; $j < 3; $j++){
                 $stage = new Stage();
