@@ -2,20 +2,30 @@
 
 {% block body %}
     
+	<br />
+	<h1>
+        <center>Stages :</center>
+    </h1>
+	<br />
+
     <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
 			<table class="table">
 				<thead>
 					<tr>
-						<th>
+						<th class="col-md-2">
+						</th>
+						<th class="col-md-3">
 							Nom stage
 						</th>
-						<th>
+						<th class="col-md-2">
 							Nom entreprise
 						</th>
-						<th>
+						<th class="col-md-3">
 							Fomration(s) visée(s)
+						</th>
+						<th class="col-md-2">
 						</th>
 					</tr>
 				</thead>
@@ -23,17 +33,21 @@
 				<tbody>
                     {% for stage in stages %}
                         <tr>
-                            <td>
+							<td class="col-md-2">
+							</td>
+                            <td class="col-md-3">
                                 <a href="{{path('pro_stage_stage_id', {'id': stage.getId()}) }}" <button type="button" class="btn btn-link">{{stage.getTitre()}}</button>
                             </td>
-                            <td>
+                            <td class="col-md-2">
                                 <a href="{{path('pro_stage_entreprise_id', {'id': stage.getEntreprise().getId()}) }}" <button type="button" class="btn btn-link">{{stage.getEntreprise().getNom()}}</button>
                             </td>
-                            <td>
+                            <td class="col-md-3">
                                 {% for formation in stage.getTypeFormation() %}
                                     {{formation.getTitre()}}
                                 {% endfor %}
                             </td>
+							<td class="col-md-2">
+							</td>
                         </tr>
                     {% endfor %}
 				</tbody>

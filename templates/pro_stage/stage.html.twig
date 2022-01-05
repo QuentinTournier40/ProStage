@@ -1,7 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-<h1> Bienvenue sur la page du stage n° lol </h1>
-
+    <div class="card mb-3">
+    <div class="card-body">
+        <h2 class="card-title">{{stage.getTitre()}}</h2>
+        <h6 class="card-subtitle text-muted">{{stage.getEntreprise().getActivite()}}</h6>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <strong> Proposé par : </strong> <br/>
+            <a href="{{path('pro_stage_entreprise_id', {'id': stage.getEntreprise().getId()}) }}" >{{stage.getEntreprise().getNom()}}</a>
+        </li>
+        <li class="list-group-item">
+            <strong> Intitulé de la mission : </strong> <br/>
+            {{stage.getMission()}}
+        </li>
+        <li class="list-group-item">
+            <strong>Email de contact : </strong> <br/>
+            {{stage.getEmail()}}
+        </li>
+    </ul>
+    </div>
 {% endblock %}
