@@ -23,7 +23,7 @@
 							Nom entreprise
 						</th>
 						<th class="col-md-3">
-							Fomration(s) visée(s)
+							Formation(s) visée(s)
 						</th>
 						<th class="col-md-2">
 						</th>
@@ -43,7 +43,7 @@
                             </td>
                             <td class="col-md-3">
                                 {% for formation in stage.getTypeFormation() %}
-                                    {{formation.getTitre()}}
+                                    <a href="{{path('pro_stage_formation_id', {'id': formation.getId()}) }}" <button type="button" class="btn btn-link">{{formation.getTitre()}}</button>
                                 {% endfor %}
                             </td>
 							<td class="col-md-2">

@@ -1,7 +1,51 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    
+	<br />
+	<h1>
+        <center>Stage proposé par <strong>{{entreprise.getNom()}}</strong> :</center>
+    </h1>
+	<br />
 
-<h1> Bienvenue sur la page des  </h1>
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead>
+					<tr>
+						<th class="col-md-2">
+						</th>
+						<th class="col-md-4">
+							Nom stage
+						</th>
+						<th class="col-md-4">
+							activitée
+						</th>
+						<th class="col-md-2">
+						</th>
+					</tr>
+				</thead>
+
+				<tbody>
+                    {% for stage in entreprise.getStages() %}
+                        <tr>
+							<td class="col-md-2">
+							</td>
+                            <td class="col-md-4">
+                                <a href="{{path('pro_stage_stage_id', {'id': stage.getId()}) }}" <button type="button" class="btn btn-link">{{stage.getTitre()}}</button>
+                            </td>
+                            <td class="col-md-4">
+                                {{stage.getEntreprise().getActivite()}}
+                            </td>
+							<td class="col-md-2">
+							</td>
+                        </tr>
+                    {% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+    </div>
 
 {% endblock %}

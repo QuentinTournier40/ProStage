@@ -9,7 +9,9 @@
     <ul class="list-group list-group-flush">
         <li class="list-group-item">
             <strong> Proposé par : </strong> <br/>
-            <a href="{{path('pro_stage_entreprise_id', {'id': stage.getEntreprise().getId()}) }}" >{{stage.getEntreprise().getNom()}}</a>
+            <a href="{{path('pro_stage_entreprise_id', {'id': stage.getEntreprise().getId()}) }}" >{{stage.getEntreprise().getNom()}}</a> <br/>
+            {{stage.getEntreprise().getAdresse()}} <br/>
+            <strong> Site web : </strong> <a href="#">{{stage.getEntreprise().getLienSite()}}</a>
         </li>
         <li class="list-group-item">
             <strong> Intitulé de la mission : </strong> <br/>
