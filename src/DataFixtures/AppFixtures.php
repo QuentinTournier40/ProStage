@@ -24,10 +24,10 @@ class AppFixtures extends Fixture
         $lpMetierNum = new Formation();
         $lpMetierNum->setTitre("Licence des metiers du numerique");
 
-        $dutGea = new Formation();
-        $dutGea->setTitre("DUT Gestion des entreprises et des administrations");
+        $dutMPh = new Formation();
+        $dutMPh->setTitre("DUT Mesures physiques");
 
-        $tableauTypesFormations = array($dutInfo, $lpProg, $lpMetierNum, $dutGea);
+        $tableauTypesFormations = array($dutInfo, $lpProg, $lpMetierNum, $dutMPh);
 
         foreach ($tableauTypesFormations as $typeFormation){
             $manager->persist($typeFormation);
@@ -41,18 +41,21 @@ class AppFixtures extends Fixture
             $entreprise = new Entreprise();
             $entreprise->setNom($faker->company);
             $entreprise->setAdresse($faker->address);
-            $entreprise->setActivite($faker->catchPhrase);
+            $entreprise->setActivite($faker->word);
             $entreprise->setLienSite($faker->domainName);
 
             for($j = 0; $j < 3; $j++){
                 $stage = new Stage();
-                $stage->setTitre($faker->realText($maxNbChars = 25, $indexSize = 2));
+                $stage->setTitre($faker->realText($maxNbChars = 35, $indexSize = 2));
                 $stage->setMission($faker->realText($maxNbChars = 90, $indexSize = 2));
                 $stage->setEmail($faker->companyEmail);
                 $stage->setEntreprise($entreprise);
-                $formationAChoisir = $faker->numberBetween($min = 0, $max = 3);
-                $stage->addTypeFormation($tableauTypesFormations[$formationAChoisir]);
-
+                $nbFormations = $faker->numberBetween($min = 1, $max = 3);
+                for($k = 0; $k < $nbFormations; $k++){
+                    $formationAChoisir = $faker->numberBetween($min = 0, $max = 3);
+                    $stage->addTypeFormation($tableauTypesFormations[$formationAChoisir]);
+                }
+                $faker->unique($reset = true);
                 $manager->persist($stage);
             }
 
