@@ -41,7 +41,7 @@ class AppFixtures extends Fixture
             $entreprise = new Entreprise();
             $entreprise->setNom($faker->company);
             $entreprise->setAdresse($faker->address);
-            $entreprise->setActivite("aeronautique");
+            $entreprise->setActivite($faker->catchPhrase);
             $entreprise->setLienSite($faker->domainName);
 
             for($j = 0; $j < 3; $j++){

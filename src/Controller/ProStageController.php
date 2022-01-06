@@ -8,16 +8,17 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Stage;
 use App\Entity\Entreprise;
 use App\Entity\Formation;
+use App\Repository\StageRepository;
+use App\Repository\FormationRepository;
+use App\Repository\EntrepriseRepository;
 
 class ProStageController extends AbstractController
 {
     /**
      * @Route("/", name="pro_stage_accueil")
      */
-    public function index(): Response
+    public function index(StageRepository $repositoryStage): Response
     {
-        //Récupérer le repository de l'entité Stage
-        $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
         //Récupérer les ressources enregistrées en BD
         $stages = $repositoryStage->findAll();
         //Envoyer les ressources récupérées à la vue  chargée de les afficher
@@ -29,10 +30,8 @@ class ProStageController extends AbstractController
     /**
      * @Route("/entreprises", name="pro_stage_entreprises")
      */
-    public function entreprises(): Response
+    public function entreprises(EntrepriseRepository $repositoryEntreprise): Response
     {
-        //Récupérer le repository de l'entité Entreprise
-        $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
         //Récupérer les ressources enregistrées en BD
         $entreprises = $repositoryEntreprise->findAll();
         //Envoyer les ressources récupérées à la vue  chargée de les afficher
@@ -44,12 +43,8 @@ class ProStageController extends AbstractController
     /**
      * @Route("/entreprise/{id}", name="pro_stage_entreprise_id")
      */
-    public function entreprise($id): Response
+    public function entreprise(Entreprise $entreprise): Response
     {
-        //Récupérer le repository de l'entité Entreprise 
-        $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
-        //Récupérer la ressources enregistrée en BD qui possede l'id ayant pour valeur $id
-        $entreprise = $repositoryEntreprise->find($id);
         return $this->render('pro_stage/entreprise.html.twig', [
             'entreprise' => $entreprise,
         ]);
@@ -58,10 +53,8 @@ class ProStageController extends AbstractController
     /**
      * @Route("/formations", name="pro_stage_formations")
      */
-    public function formations(): Response
+    public function formations(FormationRepository $repositoryFormation): Response
     {
-        //Récupérer le repository de l'entité Formation
-        $repositoryFormation = $this->getDoctrine()->getRepository(Formation::class);
         //Récupérer les ressources enregistrées en BD
         $formations = $repositoryFormation->findAll();
         //Envoyer les ressources récupérées à la vue  chargée de les afficher
@@ -89,12 +82,8 @@ class ProStageController extends AbstractController
     /**
      * @Route("/stage/{id}", name="pro_stage_stage_id")
      */
-    public function stage($id): Response
+    public function stage(Stage $stage): Response
     {
-        //Récupérer le repository de l'entité Stage 
-        $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
-        //Récupérer la ressources enregistrée en BD qui possede l'id ayant pour valeur $id
-        $stage = $repositoryStage->find($id);
         return $this->render('pro_stage/stage.html.twig', [
             'stage' => $stage,
         ]);
