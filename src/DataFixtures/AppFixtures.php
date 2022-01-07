@@ -34,28 +34,29 @@ class AppFixtures extends Fixture
         }
 
         // Création des entreprises et de ses stages
-
-        for($i = 0; $i < 15 ; $i++){ 
+        $nombreEntreprise = $faker->numberBetween(15, 100);
+        for($i = 0; $i < $nombreEntreprise ; $i++){ 
 
             //Création de l'entreprise
             $entreprise = new Entreprise();
             $entreprise->setNom($faker->company);
             $entreprise->setAdresse($faker->address);
-            $entreprise->setActivite($faker->word);
+            $entreprise->setActivite($faker->companySuffix);
             $entreprise->setLienSite($faker->domainName);
-
-            for($j = 0; $j < 3; $j++){
+            
+            $nombreStagePourEntreprise = $faker->numberBetween(1, 6);
+            for($j = 0; $j < $nombreStagePourEntreprise; $j++){
                 $stage = new Stage();
-                $stage->setTitre($faker->realText($maxNbChars = 35, $indexSize = 2));
-                $stage->setMission($faker->realText($maxNbChars = 90, $indexSize = 2));
+                $stage->setTitre($faker->realText(35, 2));
+                $stage->setMission($faker->realText(90, 2));
                 $stage->setEmail($faker->companyEmail);
                 $stage->setEntreprise($entreprise);
-                $nbFormations = $faker->numberBetween($min = 1, $max = 3);
+                $nbFormations = $faker->numberBetween(1, 3);
                 for($k = 0; $k < $nbFormations; $k++){
-                    $formationAChoisir = $faker->numberBetween($min = 0, $max = 3);
+                    $formationAChoisir = $faker->unique()->numberBetween(0, 3);
                     $stage->addTypeFormation($tableauTypesFormations[$formationAChoisir]);
                 }
-                $faker->unique($reset = true);
+                $faker->unique(true);
                 $manager->persist($stage);
             }
 

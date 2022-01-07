@@ -66,12 +66,8 @@ class ProStageController extends AbstractController
     /**
      * @Route("/formation/{id}", name="pro_stage_formation_id")
      */
-    public function formation($id): Response
+    public function formation(Formation $formation): Response
     {
-        //Récupérer le repository de l'entité Formation 
-        $repositoryFormation = $this->getDoctrine()->getRepository(Formation::class);
-        //Récupérer la ressources enregistrée en BD qui possede l'id ayant pour valeur $id
-        $formation = $repositoryFormation->find($id);
         return $this->render('pro_stage/formation.html.twig', [
             'formation' => $formation,
         ]);
