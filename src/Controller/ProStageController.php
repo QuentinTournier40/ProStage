@@ -22,53 +22,53 @@ class ProStageController extends AbstractController
         //Récupérer les ressources enregistrées en BD
         $stages = $repositoryStage->findAll();
         //Envoyer les ressources récupérées à la vue  chargée de les afficher
-        return $this->render('pro_stage/index.html.twig', [
+        return $this->render('pro_stage/listeToutLesStages.html.twig', [
             'stages' => $stages,
         ]);
     }
 
     /**
-     * @Route("/entreprises", name="pro_stage_entreprises")
+     * @Route("/entreprises", name="pro_stage_liste_entreprises")
      */
-    public function entreprises(EntrepriseRepository $repositoryEntreprise): Response
+    public function listeEntreprises(EntrepriseRepository $repositoryEntreprise): Response
     {
         //Récupérer les ressources enregistrées en BD
         $entreprises = $repositoryEntreprise->findAll();
         //Envoyer les ressources récupérées à la vue  chargée de les afficher
-        return $this->render('pro_stage/entreprises.html.twig', [
+        return $this->render('pro_stage/listeEntreprises.html.twig', [
             'entreprises' => $entreprises,
         ]);
     }
 
     /**
-     * @Route("/entreprise/{id}", name="pro_stage_entreprise_id")
+     * @Route("/entreprise/{id}", name="pro_stage_stage_par_entreprise")
      */
-    public function entreprise(Entreprise $entreprise): Response
+    public function stageParEntreprise(Entreprise $entreprise): Response
     {
-        return $this->render('pro_stage/entreprise.html.twig', [
+        return $this->render('pro_stage/stageParEntreprise.html.twig', [
             'entreprise' => $entreprise,
         ]);
     }
 
     /**
-     * @Route("/formations", name="pro_stage_formations")
+     * @Route("/formations", name="pro_stage_liste_formations")
      */
-    public function formations(FormationRepository $repositoryFormation): Response
+    public function listeFormations(FormationRepository $repositoryFormation): Response
     {
         //Récupérer les ressources enregistrées en BD
         $formations = $repositoryFormation->findAll();
         //Envoyer les ressources récupérées à la vue  chargée de les afficher
-        return $this->render('pro_stage/formations.html.twig', [
+        return $this->render('pro_stage/listeFormations.html.twig', [
             'formations' => $formations,
         ]);
     }
 
     /**
-     * @Route("/formation/{id}", name="pro_stage_formation_id")
+     * @Route("/formation/{id}", name="pro_stage_stage_par_formation")
      */
-    public function formation(Formation $formation): Response
+    public function stageParFormation(Formation $formation): Response
     {
-        return $this->render('pro_stage/formation.html.twig', [
+        return $this->render('pro_stage/stageParFormation.html.twig', [
             'formation' => $formation,
         ]);
     }
@@ -76,11 +76,11 @@ class ProStageController extends AbstractController
 
 
     /**
-     * @Route("/stage/{id}", name="pro_stage_stage_id")
+     * @Route("/stage/{id}", name="pro_stage_detail_stage")
      */
-    public function stage(Stage $stage): Response
+    public function detailStage(Stage $stage): Response
     {
-        return $this->render('pro_stage/stage.html.twig', [
+        return $this->render('pro_stage/detailStage.html.twig', [
             'stage' => $stage,
         ]);
     }

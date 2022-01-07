@@ -23,7 +23,7 @@
 							Nom entreprise
 						</th>
 						<th class="col-md-3">
-							activitée
+							activité
 						</th>
 						<th class="col-md-2">
 						</th>
@@ -36,10 +36,10 @@
 							<td class="col-md-2">
 							</td>
                             <td class="col-md-3">
-                                <a href="{{path('pro_stage_stage_id', {'id': stage.getId()}) }}" <button type="button" class="btn btn-link">{{stage.getTitre()}}</button>
+                                <a href="{{path('pro_stage_detail_stage', {'id': stage.getId()}) }}" <button type="button" class="btn btn-link">{{stage.getTitre()}}</button>
                             </td>
                             <td class="col-md-2">
-                                <a href="{{path('pro_stage_entreprise_id', {'id': stage.getEntreprise().getId()}) }}" <button type="button" class="btn btn-link">{{stage.getEntreprise().getNom()}}</button>
+                                <a href="{{path('pro_stage_stage_par_entreprise', {'id': stage.getEntreprise().getId()}) }}" <button type="button" class="btn btn-link">{{stage.getEntreprise().getNom()}}</button>
                             </td>
                             <td class="col-md-3">
                                 {{stage.getEntreprise().getActivite()}}
