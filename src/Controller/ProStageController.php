@@ -73,8 +73,6 @@ class ProStageController extends AbstractController
         ]);
     }
 
-
-
     /**
      * @Route("/stage/{id}", name="pro_stage_detail_stage")
      */

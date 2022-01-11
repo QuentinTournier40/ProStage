@@ -13,7 +13,7 @@
         {% set debutNouvelleLigne = true %}
         
         {% for formation in formations %}
-            {# Si  on est en début de ligne, on crée un nouveau composant card-deck#}
+            {# Si  on est en début de ligne, on crée un nouveau composant row#}
             {% if debutNouvelleLigne == true %}
                 <div class="row">
                 {% set debutNouvelleLigne = false %}
@@ -28,12 +28,19 @@
                     </div>
             </div>
 
-            {# Vérifier s'il faut passer à la ligne suivante (toutes les 3 ressources affihées) #}
+            {# Vérifier s'il faut passer à la ligne suivante (toutes les 3 ressources affichées) #}
             {% if loop.index % 2 == 0 %}
             </div>
             <br />
             {% set debutNouvelleLigne = true %}
             {% endif %}
+
+        {% else %}
+
+        <h1>
+            <center>Aucune formation disponible.</center>
+        </h1>
+
         {% endfor %}
     </div>
     </center>
