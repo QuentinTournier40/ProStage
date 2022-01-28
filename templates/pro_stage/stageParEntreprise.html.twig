@@ -4,7 +4,7 @@
     
 	<br />
 	<h1>
-        <center>Stage proposé par <strong>{{entreprise.getNom()}}</strong> :</center>
+        <center>Stage proposé par <strong>{{nomEntreprise}}</strong> :</center>
     </h1>
 	<br />
 
@@ -28,7 +28,7 @@
 				</thead>
 
 				<tbody>
-                    {% for stage in entreprise.getStages() %}
+                    {% for stage in stages %}
                         <tr>
 							<td class="col-md-2">
 							</td>

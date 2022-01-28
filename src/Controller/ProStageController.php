@@ -41,14 +41,30 @@ class ProStageController extends AbstractController
     }
 
     /**
+     * @Route("/entreprise/{nom}", name="pro_stage_stage_par_entreprise")
+     */
+    public function stageParEntreprise(StageRepository $repositoryStage, $nom): Response
+    {
+        $stages = $repositoryStage->recupererStageAvecEntreprise($nom);
+
+        return $this->render('pro_stage/stageParEntreprise.html.twig', [
+            'stages' => $stages,
+            'nomEntreprise' => $nom
+        ]);
+    }
+    
+    /**
      * @Route("/entreprise/{id}", name="pro_stage_stage_par_entreprise")
      */
+    /*
     public function stageParEntreprise(Entreprise $entreprise): Response
     {
+        
+
         return $this->render('pro_stage/stageParEntreprise.html.twig', [
             'entreprise' => $entreprise,
         ]);
-    }
+    }*/
 
     /**
      * @Route("/formations", name="pro_stage_liste_formations")
@@ -64,14 +80,28 @@ class ProStageController extends AbstractController
     }
 
     /**
+     * @Route("/formation/{nom}", name="pro_stage_stage_par_formation")
+     */
+    public function stageParFormation(StageRepository $repositoryStage, $nom): Response
+    {
+        $stages = $repositoryStage->recupererStageAvecFormation($nom);
+
+        return $this->render('pro_stage/stageParFormation.html.twig', [
+            'stages' => $stages,
+            'nomFormation' => $nom
+        ]);
+    }
+
+    /**
      * @Route("/formation/{id}", name="pro_stage_stage_par_formation")
      */
+    /*
     public function stageParFormation(Formation $formation): Response
     {
         return $this->render('pro_stage/stageParFormation.html.twig', [
             'formation' => $formation,
         ]);
-    }
+    }*/
 
     /**
      * @Route("/stage/{id}", name="pro_stage_detail_stage")

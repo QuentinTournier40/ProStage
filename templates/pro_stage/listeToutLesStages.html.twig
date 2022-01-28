@@ -39,11 +39,11 @@
                                 <a href="{{path('pro_stage_detail_stage', {'id': stage.getId()}) }}" <button type="button" class="btn btn-link">{{stage.getTitre()}}</button>
                             </td>
                             <td class="col-md-2">
-                                <a href="{{path('pro_stage_stage_par_entreprise', {'id': stage.getEntreprise().getId()}) }}" <button type="button" class="btn btn-link">{{stage.getEntreprise().getNom()}}</button>
+                                <a href="{{path('pro_stage_stage_par_entreprise', {'nom': stage.getEntreprise().getNom()}) }}" <button type="button" class="btn btn-link">{{stage.getEntreprise().getNom()}}</button>
                             </td>
                             <td class="col-md-3">
                                 {% for formation in stage.getTypeFormation() %}
-                                    <a href="{{path('pro_stage_stage_par_formation', {'id': formation.getId()}) }}" <button type="button" class="btn btn-link">{{formation.getTitre()}}</button> 
+                                    <a href="{{path('pro_stage_stage_par_formation', {'nom': formation.getTitre()}) }}" <button type="button" class="btn btn-link">{{formation.getTitre()}}</button> 
 									<br />
 								{% endfor %}
                             </td>

@@ -21,7 +21,7 @@
             <div class="col-md-4">
                 <div class="card border-primary mb-3" style="max-width: 20rem;">
                         <div class="card-body">
-                            <a href="{{path('pro_stage_stage_par_entreprise', {'id': entreprise.getId()}) }}"
+                            <a href="{{path('pro_stage_stage_par_entreprise', {'nom': entreprise.nom()}) }}"
                                 <h4 class="card-title">{{entreprise.getNom()}}</h4>
                             </a>
                             <p class="card-text">{{entreprise.getActivite()}}</p>
