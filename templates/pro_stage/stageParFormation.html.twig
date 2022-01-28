@@ -4,7 +4,7 @@
     
 	<br />
 	<h1>
-        <center>Stages pour la formation <strong>{{formation.getTitre()}}</strong> :</center>
+        <center>Stages pour la formation <strong>{{nomFormation}}</strong> :</center>
     </h1>
 	<br />
 
@@ -31,7 +31,7 @@
 				</thead>
 
 				<tbody>
-                    {% for stage in formation.getStages() %}
+                    {% for stage in stages %}
                         <tr>
 							<td class="col-md-2">
 							</td>
@@ -39,7 +39,7 @@
                                 <a href="{{path('pro_stage_detail_stage', {'id': stage.getId()}) }}" <button type="button" class="btn btn-link">{{stage.getTitre()}}</button>
                             </td>
                             <td class="col-md-2">
-                                <a href="{{path('pro_stage_stage_par_entreprise', {'id': stage.getEntreprise().getId()}) }}" <button type="button" class="btn btn-link">{{stage.getEntreprise().getNom()}}</button>
+                                <a href="{{path('pro_stage_stage_par_entreprise', {'nom': stage.getEntreprise().getNom()}) }}" <button type="button" class="btn btn-link">{{stage.getEntreprise().getNom()}}</button>
                             </td>
                             <td class="col-md-3">
                                 {{stage.getEntreprise().getActivite()}}

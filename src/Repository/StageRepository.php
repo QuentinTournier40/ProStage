@@ -62,7 +62,7 @@ class StageRepository extends ServiceEntityRepository
     public function recupererStageAvecFormation($nomFormation)
     {
         $gestionnaireEntite = $this->getEntityManager();
-        $requete = $gestionnaireEntite->createQuery('SELECT s,tf FROM App\Entity\Stage JOIN s.typeFormation tf');
+        $requete = $gestionnaireEntite->createQuery('SELECT s,tf,e FROM App\Entity\Stage s JOIN s.typeFormation tf JOIN s.entreprise e');
         return $requete->execute();
     }
 }
