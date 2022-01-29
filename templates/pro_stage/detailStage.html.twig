@@ -3,23 +3,23 @@
 {% block body %}
     <div class="card mb-3">
     <div class="card-body">
-        <h2 class="card-title">{{stage.getTitre()}}</h2>
-        <h6 class="card-subtitle text-muted">{{stage.getEntreprise().getActivite()}}</h6>
+        <h2 class="card-title">{{stage.titre}}</h2>
+        <h6 class="card-subtitle text-muted">{{stage.entreprise.activite}}</h6>
     </div>
     <ul class="list-group list-group-flush">
         <li class="list-group-item">
             <strong> Proposé par : </strong> <br/>
-            <a href="{{path('pro_stage_stage_par_entreprise', {'nom': stage.getEntreprise().getNom()}) }}" >{{stage.getEntreprise().getNom()}}</a> <br/>
-            {{stage.getEntreprise().getAdresse()}} <br/>
-            <strong> Site web : </strong> <a href="#">{{stage.getEntreprise().getLienSite()}}</a>
+            <a href="{{path('pro_stage_stage_par_entreprise', {'nom': stage.entreprise.nom}) }}" >{{stage.entreprise.nom}}</a> <br/>
+            {{stage.entreprise.adresse}} <br/>
+            <strong> Site web : </strong> <a href="#">{{stage.entreprise.lienSite}}</a>
         </li>
         <li class="list-group-item">
             <strong> Intitulé de la mission : </strong> <br/>
-            {{stage.getMission()}}
+            {{stage.mission}}
         </li>
         <li class="list-group-item">
             <strong>Email de contact : </strong> <br/>
-            {{stage.getEmail()}}
+            {{stage.email}}
         </li>
     </ul>
     </div>

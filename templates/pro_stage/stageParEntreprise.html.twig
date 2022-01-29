@@ -33,10 +33,10 @@
 							<td class="col-md-2">
 							</td>
                             <td class="col-md-4">
-                                <a href="{{path('pro_stage_detail_stage', {'id': stage.getId()}) }}" <button type="button" class="btn btn-link">{{stage.getTitre()}}</button>
+                                <a href="{{path('pro_stage_detail_stage', {'id': stage.id}) }}" <button type="button" class="btn btn-link">{{stage.titre}}</button>
                             </td>
                             <td class="col-md-4">
-                                {{stage.getEntreprise().getActivite()}}
+                                {{stage.entreprise.activite}}
                             </td>
 							<td class="col-md-2">
 							</td>
