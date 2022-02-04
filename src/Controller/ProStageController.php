@@ -106,8 +106,9 @@ class ProStageController extends AbstractController
     /**
      * @Route("/stage/{id}", name="pro_stage_detail_stage")
      */
-    public function detailStage(Stage $stage): Response
+    public function detailStage(StageRepository $repositoryStage, $id): Response
     {
+        $stage = $repositoryStage->recupererInformationsStage($id);
         return $this->render('pro_stage/detailStage.html.twig', [
             'stage' => $stage,
         ]);
