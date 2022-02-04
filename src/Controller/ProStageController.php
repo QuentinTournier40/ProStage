@@ -11,6 +11,12 @@ use App\Entity\Formation;
 use App\Repository\StageRepository;
 use App\Repository\FormationRepository;
 use App\Repository\EntrepriseRepository;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
 
 class ProStageController extends AbstractController
 {
@@ -111,6 +117,35 @@ class ProStageController extends AbstractController
         $stage = $repositoryStage->recupererInformationsStage($id);
         return $this->render('pro_stage/detailStage.html.twig', [
             'stage' => $stage,
+        ]);
+    }
+
+    /**
+     * @Route("/ajouter/entreprise", name="pro_stage_creation_entreprise")
+     */
+    public function creationNouvelleEntreprise(Request $requeteHttp, EntityManagerInterface $manager): Response
+    {
+        $entreprise = new Entreprise();
+
+        $formulaireEntreprise = $this->createFormBuilder($entreprise)
+                                     ->add('nom', TextType::class)
+                                     ->add('adresse', TextType::class)
+                                     ->add('activite', TextareaType::class)
+                                     ->add('lienSite', UrlType::class)
+                                     ->add('Créer', SubmitType::class)
+                                     ->getForm();
+
+        $formulaireEntreprise->handleRequest($requeteHttp);
+
+        if($formulaireEntreprise->isSubmitted()){
+            $manager->persist($entreprise);
+            $manager->flush();
+
+            return $this->redirectToRoute('pro_stage_liste_entreprises');
+        }
+        
+        return $this->render('pro_stage/ajouterEntreprise.html.twig', [
+            'vueFormulaireEntreprise' => $formulaireEntreprise -> createView(),
         ]);
     }
     
