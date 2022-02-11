@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <br>
+    <center>
+    <h1>Modification de l'entreprise {{entreprise.nom}}</h1>
+    </center>
+    <br>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                {{ form_start(vueFormulaireEntreprise) }}
+                    {{ form_row(vueFormulaireEntreprise.nom, {"attr":{"class":"form-control"}}) }}
+                    <br>
+                    {{ form_row(vueFormulaireEntreprise.adresse, {"attr":{"class":"form-control"}}) }}
+                    <br>
+                    {{ form_row(vueFormulaireEntreprise.activite, {"attr":{"class":"form-control"}}) }}
+                    <br>
+                    {{ form_row(vueFormulaireEntreprise.lienSite, {"attr":{"class":"form-control"}}) }}
+                    <br>
+                    {{ form_row(vueFormulaireEntreprise.Créer, {"attr":{"class":"btn btn-primary"}}) }}
+                {{ form_end(vueFormulaireEntreprise) }}	
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+    </div>
+{% endblock %}

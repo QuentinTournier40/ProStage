@@ -19,6 +19,16 @@ class EntrepriseRepository extends ServiceEntityRepository
         parent::__construct($registry, Entreprise::class);
     }
 
+    public function recupererEntrepriseAvecNom($nomEntreprise)
+    {
+        return $this->createQueryBuilder('e')
+                    ->select('e')
+                    ->where('e.nom = :unNomEntreprise')
+                    ->setParameter('unNomEntreprise', $nomEntreprise)
+                    ->getQuery()
+                    ->getSingleResult();
+    }
+
     // /**
     //  * @return Entreprise[] Returns an array of Entreprise objects
     //  */
