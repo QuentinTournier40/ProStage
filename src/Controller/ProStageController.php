@@ -11,12 +11,9 @@ use App\Entity\Formation;
 use App\Repository\StageRepository;
 use App\Repository\FormationRepository;
 use App\Repository\EntrepriseRepository;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\UrlType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Form\EntrepriseType;
 
 class ProStageController extends AbstractController
 {
@@ -127,13 +124,7 @@ class ProStageController extends AbstractController
     {
         $entreprise = new Entreprise();
 
-        $formulaireEntreprise = $this->createFormBuilder($entreprise)
-                                     ->add('nom', TextType::class)
-                                     ->add('adresse', TextType::class)
-                                     ->add('activite', TextareaType::class)
-                                     ->add('lienSite', UrlType::class)
-                                     ->add('Créer', SubmitType::class)
-                                     ->getForm();
+        $formulaireEntreprise = $this->createForm(EntrepriseType::class, $entreprise);
 
         $formulaireEntreprise->handleRequest($requeteHttp);
 
@@ -156,13 +147,7 @@ class ProStageController extends AbstractController
     {
         $entreprise = $repositoryEntreprise->recupererEntrepriseAvecNom($nom);
 
-        $formulaireEntreprise = $this->createFormBuilder($entreprise)
-                                     ->add('nom', TextType::class)
-                                     ->add('adresse', TextType::class)
-                                     ->add('activite', TextareaType::class)
-                                     ->add('lienSite', UrlType::class)
-                                     ->add('Créer', SubmitType::class)
-                                     ->getForm();
+        $formulaireEntreprise = $this->createForm(EntrepriseType::class, $entreprise);
 
         $formulaireEntreprise->handleRequest($requeteHttp);
 
