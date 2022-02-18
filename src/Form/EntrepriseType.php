@@ -20,7 +20,6 @@ class EntrepriseType extends AbstractType
             ->add('adresse', TextType::class)
             ->add('activite', TextareaType::class)
             ->add('lienSite', UrlType::class)
-            ->add('Créer', SubmitType::class)
         ;
     }
 

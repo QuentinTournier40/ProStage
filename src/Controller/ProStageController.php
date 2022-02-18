@@ -14,6 +14,7 @@ use App\Repository\EntrepriseRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Form\EntrepriseType;
+use App\Form\StageType;
 
 class ProStageController extends AbstractController
 {
@@ -161,6 +162,30 @@ class ProStageController extends AbstractController
         return $this->render('pro_stage/modifierEntreprise.html.twig', [
             'vueFormulaireEntreprise' => $formulaireEntreprise -> createView(),
             'entreprise' => $entreprise,
+        ]);
+    }
+
+    /**
+     * @Route("/ajouter/stage", name="pro_stage_ajouter_stage")
+     */
+    public function ajouterUnStage(Request $requeteHttp, EntityManagerInterface $manager, StageRepository $repositoryStage): Response
+    {
+        $stage = new Stage();
+
+        $formulaireStage = $this->createForm(StageType::class, $stage);
+
+        $formulaireStage->handleRequest($requeteHttp);
+
+        if($formulaireStage->isSubmitted()){
+            $manager->persist($stage);
+            $manager->persist($stage->getEntreprise());
+            $manager->flush();
+
+            return $this->redirectToRoute('pro_stage_accueil');
+        }
+        
+        return $this->render('pro_stage/ajouterStage.html.twig', [
+            'vueFormulaireStage' => $formulaireStage -> createView(),
         ]);
     }
 }
