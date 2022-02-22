@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\StageRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,21 +22,25 @@ class Stage
 
     /**
      * @ORM\Column(type="string", length=300)
+     * @Assert\NotBlank
      */
     private $titre;
 
     /**
      * @ORM\Column(type="string", length=10000)
+     * @Assert\NotBlank
      */
     private $mission;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank
      */
     private $email;
 
     /**
      * @ORM\ManyToMany(targetEntity=Formation::class, inversedBy="stages")
+     * @Assert\NotBlank
      */
     private $typeFormation;
 
