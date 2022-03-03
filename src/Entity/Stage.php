@@ -47,6 +47,7 @@ class Stage
     /**
      * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="stages")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $entreprise;
 

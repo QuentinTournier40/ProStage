@@ -13,6 +13,15 @@
             </div>
             <div class="col-md-4">
                 {{ form_start(vueFormulaireEntreprise, {'attr': {'novalidate': 'novalidate'}}) }}
+                    {{ form_row(vueFormulaireEntreprise.nom) }}
+                    <br>
+                    {{ form_row(vueFormulaireEntreprise.adresse) }}
+                    <br>
+                    {{ form_row(vueFormulaireEntreprise.activite) }}
+                    <br>
+                    {{ form_row(vueFormulaireEntreprise.lienSite) }}
+                    <br>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
                 {{ form_end(vueFormulaireEntreprise) }}	
             </div>
             <div class="col-md-4">
