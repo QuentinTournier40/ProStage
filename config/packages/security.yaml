@@ -1,11 +1,11 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory:
-                users:
-                    admin: {password: admin, roles: ROLE_ADMIN}
-                    normal: {password: normal, roles: ROLE_USER}
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -30,4 +30,7 @@ security:
     encoders:
         Symfony\Component\Security\Core\User\User:
             algorithm: bcrypt
-            cost: 15
+            cost: 10
+        App\Entity\User:
+            algorithm: auto
+
