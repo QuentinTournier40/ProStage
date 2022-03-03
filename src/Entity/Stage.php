@@ -40,7 +40,8 @@ class Stage
 
     /**
      * @ORM\ManyToMany(targetEntity=Formation::class, inversedBy="stages")
-     * @Assert\NotBlank
+     * @Assert\Count(min = 1,
+     *               minMessage = "Vous devez choisir au minimun {{ limit }} stage.")
      */
     private $typeFormation;
 
@@ -48,6 +49,7 @@ class Stage
      * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="stages")
      * @ORM\JoinColumn(nullable=false)
      * @Assert\NotBlank
+     * @Assert\Valid
      */
     private $entreprise;
 
