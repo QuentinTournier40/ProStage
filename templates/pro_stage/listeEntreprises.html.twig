@@ -1,52 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-    <br />
+    <br>
     <h1>
         <center>Entreprises proposant des stages :</center>
     </h1>
-    <br />
-
-    <center>
-    <div class="container-fluid">
-        {% set debutNouvelleLigne = true %}
-        
+    <br>
+    <div class="row justify-content-center">
         {% for entreprise in entreprises %}
-            {# Si  on est en début de ligne, on crée un nouveau composant row#}
-            {% if debutNouvelleLigne == true %}
-                <div class="row">
-                {% set debutNouvelleLigne = false %}
-            {% endif %}
-            <div class="col-md-4">
-                <div class="card border-primary mb-3" style="max-width: 20rem;">
-                        <div class="card-body">
-                            <a href="{{path('pro_stage_stage_par_entreprise', {'nom': entreprise.nom}) }}"
-                                <h4 class="card-title">{{entreprise.nom}}</h4>
-                            </a>
-                            <p class="card-text">{{entreprise.activite}}</p>
-                        </div>
-                    </div>
+            <div class="col-md-4 col-sm-6 p-0 truc">
+                <div class="service-item text-center">
+                    <span class="count">{{loop.index}}.</span>
+                    <br>
+                    <h4>{{entreprise.nom}}</h4>
+                    <br>
+                    <a class="btn btn-main" href="{{path('pro_stage_stage_par_entreprise', {'nom': entreprise.nom}) }}">Voir plus</a>
+                </div>
+                <br>
+                <br>
             </div>
-
-            {# Vérifier s'il faut passer à la ligne suivante (toutes les 3 ressources affichées) #}
-            {% if loop.index % 3 == 0 %}
-            </div>
-            <br />
-            {% set debutNouvelleLigne = true %}
-            
+            {% if loop.index % 2 == 0 %}
+                <div class="w-100"></div>
             {% endif %}
-
         {% else %}
-
-        <h1>
-            <center>Aucune entreprise disponible.</center>
-        </h1>
-
+            <h1>
+                <center>Aucune entreprise disponible.</center>
+            </h1>
         {% endfor %}
     </div>
-    </center>
-
 {% endblock %}
 
 

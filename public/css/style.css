@@ -1398,97 +1398,14 @@ a:focus, a:hover {
   Footer section
 ==================================================================*/
 .top-footer {
-  background-color: #222222;
+  background-color: #1f2532;
   border-top: 1px solid #404040;
-  padding: 100px 0 80px;
-}
-
-.top-footer h3 {
-  font-size: 16px;
-  line-height: 1.5;
-  color: #fff;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-}
-
-.top-footer p {
-  font-size: 13px;
-  line-height: 30px;
-  color: #bdbdbd;
-  font-weight: 300;
-  padding-right: 20px;
-}
-
-.top-footer li a {
-  font-size: 13px;
-  line-height: 30px;
-  color: #bdbdbd;
-  font-weight: 300;
-  letter-spacing: 1px;
-  text-transform: capitalize;
-  transition: color .3s;
-  font-family: "Titillium Web", sans-serif;
-  display: block;
-}
-
-.top-footer li a:hover {
-  color: #f0326b;
-}
-
-.footer-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   text-align: center;
-  background-color: #1b1b1b;
-  border-top: 1px solid #2c2c2c;
-  padding: 30px 0;
-}
-
-.footer-bottom h5 {
-  font-size: 12px;
-  line-height: 1;
+  font-size: 16px;
   color: #888888;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-top: 7px;
-  margin-bottom: 3px;
-}
-
-.footer-bottom h6 {
-  font-size: 11px;
-  line-height: 15px;
-  color: #888888;
-  font-weight: 400;
-  text-transform: capitalize;
-  letter-spacing: 2px;
-  margin-bottom: 0;
-}
-
-.footer-bottom p {
-  color: #656565;
-}
-
-.footer-bottom a {
-  color: #f0326b;
-}
-
-.subscribe-form .form-control {
-  border-radius: 0;
-}
-
-.page-404 {
-  height: 100vh;
-}
-
-.page-404 h1 {
-  font-size: 200px;
-}
-
-@media (max-width: 480px) {
-  .page-404 h1 {
-    font-size: 100px;
-  }
 }
 
 /*# sourceMappingURL=maps/style.css.map */
@@ -1784,4 +1701,28 @@ a:focus, a:hover {
 
 .row{
   justify-content: center;
+}
+
+.count{
+font-size: 60px;
+position: absolute;
+top: 0;
+left: 20px;
+color: #f3f1f1;
+font-weight: 700;
+}
+
+.truc{
+  border: 3px solid;
+  border-color: #1f2532;
+  margin: 5px;
+  background-color: #1e2530;
+}
+
+.truc h4{
+  color: #FFF;
+}
+
+a {
+  color: #FFF;
 }

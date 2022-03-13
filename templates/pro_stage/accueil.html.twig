@@ -3,15 +3,15 @@
 {% block body %}
 
 <main class="site-wrapper">
-  <div class="pt-table">
-    <div class="pt-tablecell page-home relative">
+    <div class="page-home relative">
       <div class="overlay"></div>
-
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
             <div class="page-title home text-center">
-              <p>A product designer from England, who focuses on interactive design &amp; A freelance designer focusing on typography &amp; clean interfaces. Also works in Google.</p>
+              <br>
+              <p>Bienvenue sur ProStages, la première plateforme de recherche de stages.</p>
+              <br>
             </div>
             <div class="hexagon-menu clear">
               <div class="hexagon-item">
@@ -25,12 +25,13 @@
                   <div></div>
                   <div></div>
                 </div>
-                <a href="welcome.html" class="hex-content">
+                <a href="{{path('pro_stage_liste_entreprises')}}" class="hex-content">
                   <span class="hex-content-inner">
                     <span class="icon">
-                      <i class="tf-dial"></i>
+                    <br>
+                      <img src="{{ asset('/img/factory.png')}}" width="90" height="90">
                     </span>
-                    <span class="title">Welcome</span>
+                    <span class="title">Liste des entreprises</span>
                   </span>
                   <svg viewbox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
                     xmlns="http://www.w3.org/2000/svg">
@@ -55,12 +56,13 @@
                   <div></div>
                   <div></div>
                 </div>
-                <a href="resume.html" class="hex-content">
+                <a href="{{path('pro_stage_liste_formations')}}" class="hex-content">
                   <span class="hex-content-inner">
                     <span class="icon">
-                      <i class="tf-tools"></i>
+                      <br>
+                      <img src="{{ asset('/img/graduation_cap.png')}}" width="90" height="90">
                     </span>
-                    <span class="title">Resume</span>
+                    <span class="title">Liste des formations</span>
                   </span>
                   <svg viewbox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
                     xmlns="http://www.w3.org/2000/svg">
@@ -81,12 +83,14 @@
                   <div></div>
                   <div></div>
                 </div>
-                <a href="testimonials.html" class="hex-content">
+                <a href="{{path('pro_stage_liste_tout_les_stages')}}" class="hex-content">
                   <span class="hex-content-inner">
                     <span class="icon">
-                      <i class="tf-chat"></i>
+                      <br>
+                      <br>
+                      <img src="{{ asset('/img/stage.png')}}" width="90" height="90">
                     </span>
-                    <span class="title">Testimonials</span>
+                    <span class="title">Tous les stages</span>
                   </span>
                   <svg viewbox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
                     xmlns="http://www.w3.org/2000/svg">
@@ -101,7 +105,6 @@
         </div> <!-- /.row -->
       </div> <!-- /.container -->
     </div> <!-- /.pt-tablecell -->
-  </div> <!-- /.pt-table -->
 </main> <!-- /.site-wrapper -->
 
 {% endblock %}
