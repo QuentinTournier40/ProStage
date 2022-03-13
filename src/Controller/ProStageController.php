@@ -23,6 +23,15 @@ class ProStageController extends AbstractController
      */
     public function index(StageRepository $repositoryStage): Response
     {
+        return $this->render('pro_stage/accueil.html.twig', [
+        ]);
+    }
+
+    /**
+     * @Route("/tout-les-stages", name="pro_stage_liste_tout_les_stages")
+     */
+    public function listeToutLesStages(StageRepository $repositoryStage): Response
+    {
         //Récupérer les ressources enregistrées en BD
         $stages = $repositoryStage->recupererToutLesStagesAvecFormationsEtEntreprises();
         //Envoyer les ressources récupérées à la vue  chargée de les afficher
