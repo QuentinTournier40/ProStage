@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} 
+{% block body %}
     <br>
     <h1><center>Inscription sur ProStages !<center></h1>
-{% endblock %}
-
-{% block body %}
+    <br>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
             </div>
             <div class="col-md-4">
-                {{ form_start(vueFormulaireInscription, {'attr': {'novalidate': 'novalidate'}}) }}
-                {{ form_end(vueFormulaireInscription) }}	
+                <div class="contact-form">
+                    {{ form_start(vueFormulaireInscription, {'attr': {'novalidate': 'novalidate'}}) }}
+                    {{ form_end(vueFormulaireInscription) }}	
+                </div>
             </div>
             <div class="col-md-4">
             </div>

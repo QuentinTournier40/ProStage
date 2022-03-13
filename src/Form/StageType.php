@@ -31,7 +31,6 @@ class StageType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
             ))
-            ->add('Créer', SubmitType::class)
         ;
     }
 

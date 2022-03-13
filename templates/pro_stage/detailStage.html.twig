@@ -1,52 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+    <br>
+    <center>
+        <h1>Details :</h1>
+    </center>
+    <br>
     <div class="row justify-content-center">
-            <div class="col-md-4 col-sm-6 p-0 truc">
-                <div class="service-item text-center">
+        <div class="col-md-4 col-sm-6 p-0 truc">
+            <div class="service-item text-center">
+                <br>
+                <h4>{{stage.titre}}</h4>
+                <h4>{{stage.entreprise.activite}}</h4>
+                <br>
+                <strong> Proposé par : </strong> <a href="{{path('pro_stage_stage_par_entreprise', {'nom': stage.entreprise.nom}) }}" >{{stage.entreprise.nom}}</a>
+                <br>
+                <br>
+                <strong> Mission : </strong> <p> {{stage.mission}} </p>
+                <br>
+                <strong> Proposé aux étudiant en : </strong> 
+                {% for formation in stage.typeFormation %}
+                    <a href="{{path('pro_stage_stage_par_formation', {'nom': formation.titre}) }}">{{ formation.titre }}</a>
                     <br>
-                    <h4>{{stage.titre}}</h4>
-                    <h4>{{stage.entreprise.activite}}</h4>
-                    <br>
-                    <strong> Proposé par : </strong> <br/>
-                    <a href="{{path('pro_stage_stage_par_entreprise', {'nom': stage.entreprise.nom}) }}" >{{stage.entreprise.nom}}</a> <br/>
-                    <p>{{stage.entreprise.adresse}} </p>
-                    <strong> Site web : </strong> <a href="#">{{stage.entreprise.lienSite}}</a>
-                </div>
+                {% endfor %}
+                <br>
+                <strong> Adresse : </stong> <p>{{stage.entreprise.adresse}} </p>
+                <br>
+                <strong> Site web : </strong> <a href="#">{{stage.entreprise.lienSite}}</a>
                 <br>
                 <br>
             </div>
+        </div>
     </div>
-
-<section class="hero-area">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h2 >{{stage.titre}}</h2>
-                        <h6 >{{stage.entreprise.activite}}</h6>
-                    </div>
-                    <ul >
-                        <li >
-                            <strong> Proposé par : </strong> <br/>
-                            <a href="{{path('pro_stage_stage_par_entreprise', {'nom': stage.entreprise.nom}) }}" >{{stage.entreprise.nom}}</a> <br/>
-                            {{stage.entreprise.adresse}} <br/>
-                            <strong> Site web : </strong> <a href="#">{{stage.entreprise.lienSite}}</a>
-                        </li>
-                        <li >
-                            <strong> Intitulé de la mission : </strong> <br/>
-                            {{stage.mission}}
-                        </li>
-                        <li >
-                            <strong>Email de contact : </strong> <br/>
-                            {{stage.email}}
-                        </li>
-                    </ul>
-                </div>
-			</div>
-		</div>
-	</div>
-</section>	
 {% endblock %}

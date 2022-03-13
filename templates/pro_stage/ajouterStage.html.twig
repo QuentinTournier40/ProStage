@@ -6,14 +6,26 @@
     <h1>Création d'un stage</h1>
     </center>
     <br>
-    <br>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
             </div>
             <div class="col-md-4">
-                {{ form_start(vueFormulaireStage, {'attr': {'novalidate': 'novalidate'}}) }}
-                {{ form_end(vueFormulaireStage) }} 
+                <div class="contact-form">
+                    {{ form_start(vueFormulaireStage, {'attr': {'novalidate': 'novalidate'}}) }}
+                        {{ form_row(vueFormulaireStage.titre)}}
+                        <br>                        
+                        {{ form_row(vueFormulaireStage.mission)}}
+                        <br>
+                        {{ form_row(vueFormulaireStage.email)}}
+                        <br>                        
+                        {{ form_row(vueFormulaireStage.entreprise)}}
+                        <br>                        
+                        {{ form_row(vueFormulaireStage.typeFormation)}}
+                        <br>
+                        <center> <button type="submit" class="btn btn-main">Enregistrer</button> </center>
+                    {{ form_end(vueFormulaireStage) }} 
+                </div>
             </div>
             <div class="col-md-4">
             </div>
