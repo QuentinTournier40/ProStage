@@ -48,7 +48,7 @@ class AppFixtures extends Fixture
         }
 
         // Création des entreprises et de ses stages
-        $nombreEntreprise = $faker->numberBetween(15, 100);
+        $nombreEntreprise = $faker->numberBetween(15, 20);
         for($i = 0; $i < $nombreEntreprise ; $i++){ 
 
             //Création de l'entreprise
@@ -58,7 +58,7 @@ class AppFixtures extends Fixture
             $entreprise->setActivite($faker->companySuffix);
             $entreprise->setLienSite($faker->domainName);
             
-            $nombreStagePourEntreprise = $faker->numberBetween(1, 6);
+            $nombreStagePourEntreprise = $faker->numberBetween(1, 3);
             for($j = 0; $j < $nombreStagePourEntreprise; $j++){
                 $stage = new Stage();
                 $stage->setTitre($faker->realText(35, 2));
