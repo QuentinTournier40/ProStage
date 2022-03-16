@@ -3,33 +3,34 @@
 {% block title %}Formation index{% endblock %}
 
 {% block body %}
-    <h1>Formation index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <br>
+    <h1>
+        <center>Formations :</center>
+    </h1>
+    <br>
+    <div class="row justify-content-center">
         {% for formation in formations %}
-            <tr>
-                <td>{{ formation.id }}</td>
-                <td>{{ formation.titre }}</td>
-                <td>
-                    <a href="{{ path('formation_show', {'id': formation.id}) }}">show</a>
-                    <a href="{{ path('formation_edit', {'id': formation.id}) }}">edit</a>
-                </td>
-            </tr>
+            <div class="col-md-4 col-sm-6 p-0 truc">
+                <div class="service-item text-center">
+                    <span class="countPetit">ID : {{formation.id}}</span>
+                    <br>
+                    <h4>{{formation.titre}}</h4>
+                    <br>
+                    <a class="btn btn-main" href="{{ path('formation_show', {'id': formation.id}) }}">Voir</a>
+                    <a class="btn btn-main" href="{{ path('formation_edit', {'id': formation.id}) }}">Editer</a>
+                </div>
+                <br>
+                <br>
+            </div>
+            {% if loop.index % 2 == 0 %}
+                <div class="w-100"></div>
+            {% endif %}
         {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
+            <h1>
+                <center>Aucune formation.</center>
+            </h1>
         {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('formation_new') }}">Create new</a>
+        <br>
+        <center><a class="btn btn-main" href="{{ path('formation_new') }}">Créer une formation</a></center>
+    </div>
 {% endblock %}

@@ -67,6 +67,22 @@ a:focus, a:hover {
   cursor: pointer;
 }
 
+.btn-attention, .btn-attention-sm {
+  background-color: #b92186;
+  background-image: linear-gradient(100deg, #e70202, #008cff);
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 10px 40px;
+  margin-left: 10px;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+
 .btn-main:hover, .btn-main-sm:hover {
   color: #fff;
 }
@@ -1710,6 +1726,15 @@ top: 0;
 left: 20px;
 color: #f3f1f1;
 font-weight: 700;
+}
+
+.countPetit{
+  font-size: 20px;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  color: #f3f1f1;
+  font-weight: 700;
 }
 
 .truc{
