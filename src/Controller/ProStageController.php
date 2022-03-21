@@ -24,6 +24,7 @@ class ProStageController extends AbstractController
     public function index(StageRepository $repositoryStage): Response
     {
         return $this->render('pro_stage/accueil.html.twig', [
+            
         ]);
     }
 

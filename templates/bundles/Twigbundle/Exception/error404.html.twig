@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ProStages!</title>
+        <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+    </head>
+    <body>
+        <section class="page-404 text-center d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>404</h1>
+                        <h2>Page non trouvée</h2>
+                        <p>Désolé, mais la page que vous tentez d'afficher n'existe pas.</p>
+                        <a href="{{path('pro_stage_accueil') }}" class="btn btn-main mt-20">Retour</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

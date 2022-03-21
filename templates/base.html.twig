@@ -25,6 +25,32 @@
                                 </a>
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav ml-auto">
+                                        {% if is_granted('ROLE_USER') %}
+                                        <li class="nav-item dropdown active">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Ajouter
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <a class="dropdown-item" href="{{path('pro_stage_ajouter_stage')}}">Stage</a>
+                                                {% if is_granted('ROLE_ADMIN') %}
+                                                    <a class="dropdown-item" href="{{path('pro_stage_creation_entreprise')}}">Entreprise</a>
+                                                {% endif %}
+                                            </div>  
+                                        </li>
+                                        {% endif %}
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                        <li class="nav-item dropdown active">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                CRUD ET EASY-ADMIN
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <a class="dropdown-item" href="{{path('formation_index')}}">CRUD Formation</a>
+                                                <a class="dropdown-item" href="{{path('easyadmin')}}">Easy admin</a>
+                                            </div>  
+                                        </li>
+                                        {% endif %}
                                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                             <li class="nav-item">
                                                 <a class="btn btn-main" href="{{path('app_logout')}}">Se déconnecter</a>

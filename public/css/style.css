@@ -1755,3 +1755,7 @@ a {
 strong{
   color:#FFF
 }
+
+.page-404 {
+  height: 100vh;
+}
