@@ -104,6 +104,7 @@ class ComposerStaticInitcc5b439fcd47fd20686c247d8fb8e192
             'Symfony\\Bridge\\PhpUnit\\' => 23,
             'Symfony\\Bridge\\Monolog\\' => 23,
             'Symfony\\Bridge\\Doctrine\\' => 24,
+            'Stof\\DoctrineExtensionsBundle\\' => 30,
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
         ),
         'P' => 
@@ -135,6 +136,10 @@ class ComposerStaticInitcc5b439fcd47fd20686c247d8fb8e192
         array (
             'Laminas\\Code\\' => 13,
         ),
+        'G' => 
+        array (
+            'Gedmo\\' => 6,
+        ),
         'F' => 
         array (
             'Faker\\' => 6,
@@ -164,6 +169,10 @@ class ComposerStaticInitcc5b439fcd47fd20686c247d8fb8e192
             'Doctrine\\Bundle\\FixturesBundle\\' => 31,
             'Doctrine\\Bundle\\DoctrineBundle\\' => 31,
             'DeepCopy\\' => 9,
+        ),
+        'B' => 
+        array (
+            'Behat\\Transliterator\\' => 21,
         ),
         'A' => 
         array (
@@ -455,6 +464,10 @@ class ComposerStaticInitcc5b439fcd47fd20686c247d8fb8e192
         array (
             0 => __DIR__ . '/..' . '/symfony/doctrine-bridge',
         ),
+        'Stof\\DoctrineExtensionsBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stof/doctrine-extensions-bundle/src',
+        ),
         'Sensio\\Bundle\\FrameworkExtraBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/sensio/framework-extra-bundle/src',
@@ -538,6 +551,10 @@ class ComposerStaticInitcc5b439fcd47fd20686c247d8fb8e192
         'Laminas\\Code\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-code/src',
+        ),
+        'Gedmo\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gedmo/doctrine-extensions/src',
         ),
         'Faker\\' => 
         array (
@@ -624,6 +641,10 @@ class ComposerStaticInitcc5b439fcd47fd20686c247d8fb8e192
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
+        ),
+        'Behat\\Transliterator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/behat/transliterator/src/Behat/Transliterator',
         ),
         'App\\Tests\\' => 
         array (
