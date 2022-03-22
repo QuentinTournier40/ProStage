@@ -88,4 +88,15 @@ class StageRepository extends ServiceEntityRepository
                     ->getQuery()
                     ->getSingleResult();
     }
+
+    public function recupererStageViaSlug($slugStage){
+        return $this->createQueryBuilder('s')
+                    ->select('s, e, tf')
+                    ->join('s.entreprise', 'e')
+                    ->join('s.typeFormation', 'tf')
+                    ->where('s.slug = :slugStage')
+                    ->setParameter('slugStage', $slugStage)
+                    ->getQuery()
+                    ->getSingleResult();
+    }
 }

@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=StageRepository::class)
@@ -53,6 +54,12 @@ class Stage
      * @Assert\Valid
      */
     private $entreprise;
+
+    /**
+     * @ORM\Column(type="string", length=300)
+     * @Gedmo\Slug(fields={"titre"})
+     */
+    private $slug;
 
     public function __construct()
     {
@@ -138,5 +145,17 @@ class Stage
 
     public function __toString(){
         return $this->getTitre();
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
     }
 }
