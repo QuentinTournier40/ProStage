@@ -47,7 +47,7 @@ class Entreprise
 
     /**
      * @ORM\Column(type="string", length=500)
-     * Assert\Url
+     * @Assert\Url
      * @Assert\NotBlank
      */
     private $lienSite;
